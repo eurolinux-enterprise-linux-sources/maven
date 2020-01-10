@@ -2,7 +2,7 @@
 
 Name:           maven
 Version:        3.0.5
-Release:        16%{?dist}
+Release:        17%{?dist}
 Summary:        Java project management and project comprehension tool
 
 Group:          Development/Tools
@@ -21,6 +21,9 @@ Patch100:       0005-Use-generics-in-modello-generated-code.patch
 # Patch2XX backported from upstream
 # Fixes MNG-5402 (patch from upstream commit f95ab2e)
 Patch200:       0001-MNG-5402-Better-build-number-for-git.patch
+
+# Access Maven Central via HTTPS by default
+Patch300:       0001-default-to-ssl-for-central.patch
 
 BuildArch:      noarch
 
@@ -129,6 +132,7 @@ Group:          Documentation
 %setup -q -n apache-%{name}-%{version}%{?ver_add}
 %patch100 -p1
 %patch200 -p1
+%patch300 -p1
 
 # Generate build number based on package release number
 %pom_remove_plugin :buildnumber-maven-plugin maven-core
@@ -268,6 +272,10 @@ ln -sf $(build-classpath plexus/classworlds) \
 
 
 %changelog
+* Tue Jul 21 2015 Michal Srb <msrb@redhat.com> - 3.0.5-17
+- Access Maven Central via HTTPS by default
+- Resolves: rhbz#1198561
+
 * Mon Jan  6 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 3.0.5-16
 - BuildRequire xmvn >= 1.3.0-5
 
