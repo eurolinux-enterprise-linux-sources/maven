@@ -1,0 +1,26 @@
+From d13827acd729d02bc35b6bed91c41afb1a80d7dc Mon Sep 17 00:00:00 2001
+From: Anders Hammar <anders@hammar.net>
+Date: Wed, 5 Dec 2012 14:21:04 +0100
+Subject: [PATCH] [MNG-5402] Better build number for git
+
+Signed-off-by: Anders Hammar <anders@hammar.net>
+---
+ .../src/main/java/org/apache/maven/cli/CLIReportingUtils.java           | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/maven-embedder/src/main/java/org/apache/maven/cli/CLIReportingUtils.java b/maven-embedder/src/main/java/org/apache/maven/cli/CLIReportingUtils.java
+index bca4883..19bf51e 100644
+--- a/maven-embedder/src/main/java/org/apache/maven/cli/CLIReportingUtils.java
++++ b/maven-embedder/src/main/java/org/apache/maven/cli/CLIReportingUtils.java
+@@ -88,7 +88,7 @@ public final class CLIReportingUtils
+         if ( rev != null || timestamp != null )
+         {
+             msg += " (";
+-            msg += ( rev != null ? "r" + rev : "" );
++            msg += ( rev != null ? rev : "" );
+             if ( timestamp != null )
+             {
+                 SimpleDateFormat fmt = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ssZ" );
+-- 
+1.8.1.4
+
