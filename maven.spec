@@ -2,7 +2,7 @@
 
 Name:           maven
 Version:        3.0.5
-Release:        14%{?dist}
+Release:        16%{?dist}
 Summary:        Java project management and project comprehension tool
 
 Group:          Development/Tools
@@ -25,6 +25,7 @@ Patch200:       0001-MNG-5402-Better-build-number-for-git.patch
 BuildArch:      noarch
 
 BuildRequires:  maven-local
+BuildRequires:  xmvn >= 1.3.0-5
 
 BuildRequires:  aether-api >= 1.13.1-8
 BuildRequires:  aether-connector-wagon
@@ -267,6 +268,12 @@ ln -sf $(build-classpath plexus/classworlds) \
 
 
 %changelog
+* Mon Jan  6 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 3.0.5-16
+- BuildRequire xmvn >= 1.3.0-5
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.0.5-15
+- Mass rebuild 2013-12-27
+
 * Thu Nov  7 2013 Mikolaj Izdebski <mizdebsk@redhat.com> - 3.0.5-14
 - Add cglib to plexus.core
 
